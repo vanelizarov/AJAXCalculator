@@ -1,0 +1,18 @@
+.input-field {
+    margin: $gutter-width 0 0 0;
+    padding: 0 $gutter-width 0 0;
+
+    border: none;
+    outline: 0;
+
+    @include paper;
+
+    display: block;
+    height: 50px;
+
+    background: rgba($primary-color-text, 0.2);
+    color: $secondary-text-color;
+
+    text-indent: $gutter-width;
+
+}

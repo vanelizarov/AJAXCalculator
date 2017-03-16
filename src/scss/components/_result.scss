@@ -1,0 +1,17 @@
+.result {
+    display: block;
+    margin-top: $gutter-width;
+    height: 50px;
+
+    line-height: 50px;
+    text-indent: $gutter-width;
+    color: $secondary-text-color;
+
+    @include paper;
+
+    &.result-error {
+        color: $red-color;
+        background: rgba($red-color, 0.05);
+    }
+
+}
