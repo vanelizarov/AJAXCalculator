@@ -3,7 +3,26 @@
 
 class Expressor {
 
-    const PATTERN = '/(?:\-?\d+(?:\.?\d+)?[\+\-\*\/\%\^])+\-?\d+(?:\.?\d+)?/';
+	public function calculate($input) {
+
+		error_reporting(0);
+		
+		$result = str_replace(',', '.', $input);
+		$result = str_replace('ctg', '1/tan', $result);
+		$result = str_replace('tg', 'tan', $result);
+		$result = str_replace('^', '**', $result);
+		
+		try {
+			eval('$computed = '.$result.';');
+		} catch (ParseError $e) {
+			return 'Error parsing expression';
+		} 
+	
+		return 0 + $computed;
+	
+	}	
+
+    /*const PATTERN = '/(?:\-?\d+(?:\.?\d+)?[\+\-\*\/\%\^])+\-?\d+(?:\.?\d+)?/';
     const PARENTHESIS_DEPTH = 10;
 
     public function calculate($input) {
@@ -55,6 +74,6 @@ class Expressor {
         }
 
         return 0;
-    }
+    }*/
 
 }
